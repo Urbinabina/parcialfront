@@ -1,0 +1,21 @@
+<h1 class="title">Clínicas Registradas</h1>
+
+<div *ngIf="clinicas.length === 0" class="title" style="font-size:1.1rem; opacity:0.7;">
+  No hay clínicas registradas.
+</div>
+
+<div class="list-grid" *ngIf="clinicas.length > 0">
+  <div class="card" *ngFor="let c of clinicas">
+    <h2 class="card-title">{{ c.nombre }}</h2>
+
+    <p class="card-info"><span>Ciudad:</span> {{ c.ciudad }}</p>
+    <p class="card-info"><span>Dirección:</span> {{ c.direccion }}</p>
+    <p class="card-info"><span>Camas:</span> {{ c.cantidad_camas }}</p>
+    <p class="card-info"><span>Teléfono:</span> {{ c.telefono }}</p>
+
+    <div class="card-actions">
+      <button class="btn btn-edit" (click)="editar(c.identificador)">Editar</button>
+      <button class="btn btn-delete" (click)="eliminar(c.identificador)">Eliminar</button>
+    </div>
+  </div>
+</div>
